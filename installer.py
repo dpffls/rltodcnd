@@ -219,6 +219,19 @@ def load_manifest():
         fail(f"모드팩 정보를 불러오지 못했습니다. 인터넷 연결을 확인하세요.\n({e})")
 
 
+def ensure_launcher_has_run():
+    """Forge 설치 프로그램은 launcher_profiles.json에 프로필을 끼워 넣는 방식이라,
+    공식 Minecraft 런처를 한 번도 실행한 적이 없으면 그 파일 자체가 없어서 실패한다."""
+    minecraft_dir = get_appdata_minecraft_dir()
+    profiles_path = os.path.join(minecraft_dir, "launcher_profiles.json")
+    if not os.path.exists(profiles_path):
+        fail(
+            "공식 Minecraft 런처를 아직 한 번도 실행한 적이 없는 것 같습니다.\n"
+            "Minecraft 런처를 열어서 로그인하고, 모드 없는 기본(바닐라) 버전을\n"
+            "한 번 실행해본 뒤 이 설치 프로그램을 다시 실행해주세요."
+        )
+
+
 def install_forge(manifest, java_exe):
     mc_version = manifest["minecraft_version"]
     forge_version = manifest["forge_version"]
@@ -246,7 +259,7 @@ def install_forge(manifest, java_exe):
 
         log("Forge 설치 중 (자동, 몇 분 걸릴 수 있어요)...")
         result = subprocess.run(
-            [java_exe, "-jar", installer_path, "--installClient"],
+            [java_exe, "-jar", installer_path, "--installClient", minecraft_dir],
             capture_output=True,
             text=True,
         )
@@ -300,6 +313,7 @@ def main():
     print(f"Forge 버전: {manifest.get('forge_version')}\n")
 
     print("[1/2] Forge 설치")
+    ensure_launcher_has_run()
     install_forge(manifest, java_exe)
 
     print("\n[2/2] 모드 다운로드")
