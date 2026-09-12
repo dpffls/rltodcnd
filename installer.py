@@ -24,8 +24,8 @@ import urllib.error
 # ============================================================
 # 여기만 본인 정보로 바꾸세요
 # ============================================================
-GITHUB_USER = "YOUR_GITHUB_USERNAME"
-GITHUB_REPO = "YOUR_REPO_NAME"
+GITHUB_USER = "dpffls"
+GITHUB_REPO = "rltodcnd"
 MANIFEST_URL = f"https://raw.githubusercontent.com/{GITHUB_USER}/{GITHUB_REPO}/main/manifest.json"
 # ============================================================
 
