@@ -155,24 +155,38 @@ def resolve_java_exe():
 def download_with_progress(url, dest_path, label):
     """urllib로 다운로드하면서 [####----] 형태 진행률을 출력한다."""
     tmp_path = dest_path + ".part"
-
-    def _report(block_num, block_size, total_size):
-        downloaded = block_num * block_size
-        if total_size > 0:
-            percent = min(100, downloaded * 100 // total_size)
-            bar_len = 20
-            filled = bar_len * percent // 100
-            bar = "#" * filled + "-" * (bar_len - filled)
-            mb_down = downloaded / 1_000_000
-            mb_total = total_size / 1_000_000
-            print(
-                f"\r  [{bar}] {percent:3d}% ({mb_down:.1f}MB/{mb_total:.1f}MB) - {label}",
-                end="",
-                flush=True,
-            )
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) GyuminModpackInstaller/1.0"
+        },
+    )
 
     try:
-        urllib.request.urlretrieve(url, tmp_path, _report)
+        with urllib.request.urlopen(req, timeout=30) as resp, open(
+            tmp_path, "wb"
+        ) as out:
+            total_size = int(resp.headers.get("Content-Length", 0) or 0)
+            downloaded = 0
+            chunk_size = 1 << 16
+            while True:
+                chunk = resp.read(chunk_size)
+                if not chunk:
+                    break
+                out.write(chunk)
+                downloaded += len(chunk)
+                if total_size > 0:
+                    percent = min(100, downloaded * 100 // total_size)
+                    bar_len = 20
+                    filled = bar_len * percent // 100
+                    bar = "#" * filled + "-" * (bar_len - filled)
+                    mb_down = downloaded / 1_000_000
+                    mb_total = total_size / 1_000_000
+                    print(
+                        f"\r  [{bar}] {percent:3d}% ({mb_down:.1f}MB/{mb_total:.1f}MB) - {label}",
+                        end="",
+                        flush=True,
+                    )
         print()  # 줄바꿈
     except Exception as e:
         print()
@@ -191,8 +205,14 @@ def sha256_of(path):
 
 def load_manifest():
     log("모드팩 정보(manifest.json) 불러오는 중...")
+    req = urllib.request.Request(
+        MANIFEST_URL,
+        headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) GyuminModpackInstaller/1.0"
+        },
+    )
     try:
-        with urllib.request.urlopen(MANIFEST_URL, timeout=15) as resp:
+        with urllib.request.urlopen(req, timeout=15) as resp:
             data = json.loads(resp.read().decode("utf-8"))
         return data
     except urllib.error.URLError as e:
