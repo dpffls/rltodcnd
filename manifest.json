@@ -5,25 +5,25 @@
   "forge_installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.10/forge-1.20.1-47.4.10-installer.jar",
   "mods": [
     {
-      "name": "Fungal Infection: Spore",
+      "name": "spore_1.20.1_2.2.0j.jar",
       "filename": "fungal-infection-spore.jar",
       "url": "https://github.com/dpffls/rltodcnd/releases/download/v1/fungal-infection-spore.jar",
       "sha256": "e39f3794233d16455217984592744fa8eb350a5f898f1002ed721659b77fdd97"
     },
     {
-      "name": "[TaCZ] Timeless and Classics Zero Guns",
+      "name": "tacz-1.20.1-1.1.8-hotfix.jar",
       "filename": "tacz-guns.jar",
       "url": "https://github.com/dpffls/rltodcnd/releases/download/v1/tacz-guns.jar",
       "sha256": "9ed8ada1283ed7a793a70cc1b51c4a340f367ce84707e1a7b8cf21ee3d288d77"
     },
     {
-      "name": "Just Enough Items (JEI)",
+      "name": "jei-1.20.1-forge-15.58.0.209.jar",
       "filename": "jei.jar",
       "url": "https://github.com/dpffls/rltodcnd/releases/download/v1/jei.jar",
       "sha256": "e39f3794233d16455217984592744fa8eb350a5f898f1002ed721659b77fdd97"
     },
     {
-      "name": "Traveler's Backpack",
+      "name": "travelersbackpack-forge-1.20.1-9.1.57.jar",
       "filename": "travelers-backpack.jar",
       "url": "https://github.com/dpffls/rltodcnd/releases/download/v1/travelers-backpack.jar",
       "sha256": "d4a8c60bad3bf58f6020661809d97541df86e7e091daeda547a994dc5a8cfcf1"
