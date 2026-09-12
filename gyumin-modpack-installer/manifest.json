@@ -1,0 +1,32 @@
+{
+  "modpack_name": "GyuminServer Modpack",
+  "minecraft_version": "1.20.1",
+  "forge_version": "47.4.10",
+  "forge_installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.10/forge-1.20.1-47.4.10-installer.jar",
+  "mods": [
+    {
+      "name": "Fungal Infection: Spore",
+      "filename": "fungal-infection-spore.jar",
+      "url": "https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/releases/download/v1/fungal-infection-spore.jar",
+      "sha256": ""
+    },
+    {
+      "name": "[TaCZ] Timeless and Classics Zero Guns",
+      "filename": "tacz-guns.jar",
+      "url": "https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/releases/download/v1/tacz-guns.jar",
+      "sha256": ""
+    },
+    {
+      "name": "Just Enough Items (JEI)",
+      "filename": "jei.jar",
+      "url": "https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/releases/download/v1/jei.jar",
+      "sha256": ""
+    },
+    {
+      "name": "Traveler's Backpack",
+      "filename": "travelers-backpack.jar",
+      "url": "https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPO_NAME/releases/download/v1/travelers-backpack.jar",
+      "sha256": ""
+    }
+  ]
+}
