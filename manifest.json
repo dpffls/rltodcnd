@@ -27,6 +27,12 @@
       "filename": "travelersbackpack-forge-1.20.1-9.1.57.jar",
       "url": "https://github.com/dpffls/rltodcnd/releases/download/v1/travelersbackpack-forge-1.20.1-9.1.57.jar",
       "sha256": "d4a8c60bad3bf58f6020661809d97541df86e7e091daeda547a994dc5a8cfcf1"
+    },
+    {
+      "name":"Create",
+      "filename": "create-1.20.1-6.0.8.jar",
+      "url": "https://github.com/dpffls/rltodcnd/releases/download/v1/create-1.20.1-6.0.8.jar",
+      "sha256": "6fbb910c367dbce8e4fc7e5bf64b6edd4de980906ed00af8e47e4af843c0d9b0"
     }
   ]
 }
